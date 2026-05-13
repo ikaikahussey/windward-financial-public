@@ -1,0 +1,85 @@
+---
+// This page exists solely so Netlify's build-time bot can detect the forms
+// and register them. It is not linked from anywhere in the navigation.
+// React islands submit to "/" with the matching `form-name` field; Netlify
+// routes the submission to the form definition discovered here.
+//
+// Do not delete this file. Do not link to it from public navigation.
+//
+// Each <form> below mirrors the field names used by its React counterpart.
+// Field names must match exactly, or Netlify will reject the submission as
+// "spam" (unrecognized field).
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Netlify form detection</title>
+    <meta name="robots" content="noindex, nofollow" />
+  </head>
+  <body>
+    <h1>Form detection page</h1>
+    <p>This page exists for Netlify's static build-time form detection. It is not user-facing.</p>
+
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="bot-field" />
+      <input type="text" name="firstName" />
+      <input type="text" name="lastName" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="text" name="employmentType" />
+      <input type="text" name="subject" />
+      <textarea name="message"></textarea>
+    </form>
+
+    <form name="schedule" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="bot-field" />
+      <input type="text" name="firstName" />
+      <input type="text" name="lastName" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="text" name="employmentType" />
+      <input type="text" name="employer" />
+      <input type="text" name="preferredDate" />
+      <input type="text" name="preferredTime" />
+      <input type="text" name="consultationType" />
+      <textarea name="message"></textarea>
+    </form>
+
+    <form name="enroll" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="bot-field" />
+      <input type="text" name="firstName" />
+      <input type="text" name="lastName" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="text" name="employmentType" />
+      <input type="text" name="employerSchool" />
+      <input type="text" name="yearsOfService" />
+      <input type="text" name="annualSalary" />
+      <input type="text" name="ersPlanType" />
+      <input type="text" name="lifeInsuranceStatus" />
+      <textarea name="notes"></textarea>
+    </form>
+
+    <form name="newsletter" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="bot-field" />
+      <input type="email" name="email" />
+    </form>
+
+    <form name="calculator-lead" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="bot-field" />
+      <input type="text" name="firstName" />
+      <input type="text" name="lastName" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="text" name="currentAge" />
+      <input type="text" name="retirementAge" />
+      <input type="text" name="annualSalary" />
+      <input type="text" name="yearsOfService" />
+      <input type="text" name="current403bBalance" />
+      <input type="text" name="monthlyContribution" />
+      <input type="text" name="estimatedMonthlyPension" />
+      <input type="text" name="estimatedMonthlyShortfall" />
+    </form>
+  </body>
+</html>
