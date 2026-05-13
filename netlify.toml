@@ -1,0 +1,34 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Production context: deploys from the main branch
+[context.production.environment]
+  PUBLIC_SITE_URL = "https://windward.financial"
+  PUBLIC_API_URL = "https://api.windward.financial"
+
+# Deploy preview context: PRs to main
+[context.deploy-preview.environment]
+  PUBLIC_API_URL = "https://api.windward.financial"
+
+# Branch deploy context: any branch other than main
+[context.branch-deploy.environment]
+  PUBLIC_API_URL = "https://api.windward.financial"
+
+# Astro static site fallback — needed for clean URLs on 404
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
