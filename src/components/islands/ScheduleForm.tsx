@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { api } from '../../lib/api';
+import { submitNetlifyForm } from '../../lib/netlify-forms';
 
 interface ScheduleFormState {
   firstName: string;
@@ -58,7 +58,7 @@ export default function ScheduleForm() {
     e.preventDefault();
     setStatus('loading');
     try {
-      await api.post('/api/public/schedule', form);
+      await submitNetlifyForm('schedule', form);
       setStatus('success');
       setForm(initialForm);
     } catch {

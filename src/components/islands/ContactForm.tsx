@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { api } from '../../lib/api';
+import { submitNetlifyForm } from '../../lib/netlify-forms';
 
 interface ContactFormState {
   firstName: string;
@@ -41,7 +41,7 @@ export default function ContactForm() {
     e.preventDefault();
     setStatus('loading');
     try {
-      await api.post('/api/public/contact', form);
+      await submitNetlifyForm('contact', form);
       setStatus('success');
       setForm(initialForm);
     } catch {

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { api } from '../../lib/api';
+import { submitNetlifyForm } from '../../lib/netlify-forms';
 
 interface Props {
   variant?: 'footer' | 'page';
@@ -14,7 +14,7 @@ export default function NewsletterForm({ variant = 'footer' }: Props) {
     if (!email) return;
     setStatus('loading');
     try {
-      await api.post('/api/public/subscribe', { email });
+      await submitNetlifyForm('newsletter', { email });
       setStatus('success');
       setEmail('');
     } catch {

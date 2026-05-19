@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { api } from '../../lib/api';
+import { submitNetlifyForm } from '../../lib/netlify-forms';
 
 interface EnrollFormState {
   firstName: string;
@@ -48,7 +48,15 @@ export default function EnrollForm() {
     e.preventDefault();
     setStatus('loading');
     try {
-      await api.post('/api/public/enroll', form);
+      await submitNetlifyForm('enroll', {
+        firstName: form.firstName,
+        lastName: form.lastName,
+        email: form.email,
+        phone: form.phone,
+        employmentType: form.employmentType,
+        employerSchool: form.employer,
+        wantsRetirementPlanning: form.wantsRetirementPlanning ? 'yes' : 'no',
+      });
       setStatus('success');
       setForm(initialForm);
     } catch {
