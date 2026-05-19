@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { api } from '../../lib/api';
+import { submitNetlifyForm } from '../../lib/netlify-forms';
 
 interface CalcInputs {
   currentAge: number;
@@ -105,10 +105,18 @@ export default function Calculator() {
     e.preventDefault();
     setLeadStatus('loading');
     try {
-      await api.post('/api/public/calculator-lead', {
-        ...leadForm,
-        calculatorInputs: inputs,
-        calculatorResults: results,
+      await submitNetlifyForm('calculator-lead', {
+        firstName: leadForm.firstName,
+        lastName: leadForm.lastName,
+        email: leadForm.email,
+        phone: leadForm.phone,
+        currentAge: inputs.currentAge,
+        retirementAge: inputs.retirementAge,
+        annualSalary: inputs.annualSalary,
+        yearsOfService: inputs.yearsOfService,
+        current403bBalance: inputs.current403b,
+        monthlyContribution: inputs.monthlySavings,
+        estimatedMonthlyPension: results?.estimatedPension,
       });
       setLeadStatus('success');
     } catch {
