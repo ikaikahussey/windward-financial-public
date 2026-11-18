@@ -81,3 +81,11 @@ Set these in the Netlify UI under **Site settings → Environment variables** (m
 Most page copy is in `.astro` files under `src/pages/`. Team bios, testimonials, and other reusable content live as Markdown in `src/content/`.
 
 For non-developer edits, a CMS will be wired up in a future iteration.
+
+---
+
+## Forms and the welcome text
+
+`src/lib/netlify-forms.ts` sends every submission to the CRM API (`PUBLIC_API_URL`) and to Netlify Forms in parallel; it succeeds if either accepts. The CRM copy is what assigns a rep and sends the registrant the instant welcome text. The CRM API must list this site's origin in its `PUBLIC_URL` (CORS).
+
+Reps, their photos, and the message wording are managed in the Admin CRM under **Welcome Text**; nothing about them lives in this repo.

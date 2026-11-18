@@ -100,6 +100,7 @@ export default function EnrollForm() {
           <div>
             <label htmlFor="phone" className="label-field">Phone *</label>
             <input type="tel" id="phone" name="phone" value={form.phone} onChange={handleChange} required className="input-field" />
+            <p className="text-xs text-gray-500 mt-1">By giving your number, you agree to a text and a call from your Windward Financial rep about this request. Msg &amp; data rates may apply. Reply STOP to opt out.</p>
           </div>
         </div>
 
